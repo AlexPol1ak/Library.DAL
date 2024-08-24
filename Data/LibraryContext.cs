@@ -3,6 +3,7 @@ using Library.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ namespace Library.DAL.Data
 {
     public class LibraryContext: DbContext
     {
+        private string connectionString;
+        private string version;
+
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Stuff>  Stuff{ get; set; } = null!;
         public DbSet<Request> Requests { get; set; } = null!;
@@ -22,14 +26,17 @@ namespace Library.DAL.Data
         public DbSet<Rack> Racks { get; set; } = null!;
         public DbSet<Term> Terms { get; set; } = null!;
 
-        public LibraryContext()
+        public LibraryContext(string connectionString, string version)
         {
+            this.connectionString = connectionString;
+            this.version = version; 
+
             Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.UseMySql(connectionString,new MySqlServerVersion(new Version(version)));
         }
 
         /// <summary>

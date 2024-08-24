@@ -41,7 +41,6 @@ namespace Library.DAL.Data
 
             modelBuilder.Entity<User>(ModelsConfig.UserConfig);
             modelBuilder.Entity<Stuff>(ModelsConfig.StuffConfig);
-            modelBuilder.Entity<Request>(ModelsConfig.RequestConfig);
             modelBuilder.Entity<Author>(ModelsConfig.AuthorConfig);
             modelBuilder.Entity<Book>(ModelsConfig.BookConfig);
             modelBuilder.Entity<BookHistory>(ModelsConfig.BookHistoryConfig);

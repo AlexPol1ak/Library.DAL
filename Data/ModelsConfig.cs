@@ -36,8 +36,9 @@ namespace Library.DAL.Data
             builder.Property(s => s.LastName).HasMaxLength(VarcharMaxLen);
             builder.Property(s => s.Patronymic).HasMaxLength(VarcharMaxLen);
             builder.Property(s => s.Email).HasMaxLength(VarcharMaxLen);
+            builder.HasIndex(s => s.Email).IsUnique();
             builder.Property(s => s.FullName).HasMaxLength(2 * VarcharMaxLen);
-            builder.Property(s => s.HashPassword).HasMaxLength(10 * VarcharMaxLen);
+            builder.Property(s => s.Password).HasMaxLength(10 * VarcharMaxLen);
         }
 
         // Конифигурация таблицы авторов книг.

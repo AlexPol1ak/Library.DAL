@@ -15,13 +15,10 @@ using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Library.DAL.Repositories
 {
-    public class EfUnitOfWork
+    public class EfUnitOfWork: IUnitOfWork
     {
         public string ConnectionString { get; private set; }
         public string Version { get; private set; }
-
-
-
         private readonly LibraryContext context;
 
         private IRepository<User> usersRepository;
@@ -92,5 +89,4 @@ namespace Library.DAL.Repositories
             context.Entry(entity).Collection(navigationProperty).Load();
         }
     }
-}
 }

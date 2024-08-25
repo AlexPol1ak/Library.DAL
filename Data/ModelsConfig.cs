@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,19 +26,20 @@ namespace Library.DAL.Data
             builder.Property(u => u.LastName).HasMaxLength(VarcharMaxLen);
             builder.Property(u => u.Patronymic).HasMaxLength(VarcharMaxLen);
             builder.Property(u => u.Email).HasMaxLength(VarcharMaxLen);
-            builder.Property(u => u.FullName).HasMaxLength(2* VarcharMaxLen);
+            builder.Ignore(u => u.FullName);
         }
 
         // Конифигурация таблицы персонала.
         static public void StuffConfig(EntityTypeBuilder<Stuff> builder)
         {
             builder.ToTable("Stuff");
+            builder.HasKey(u => u.UserId);
             builder.Property(s => s.FirstName).HasMaxLength(VarcharMaxLen);
             builder.Property(s => s.LastName).HasMaxLength(VarcharMaxLen);
             builder.Property(s => s.Patronymic).HasMaxLength(VarcharMaxLen);
             builder.Property(s => s.Email).HasMaxLength(VarcharMaxLen);
             builder.HasIndex(s => s.Email).IsUnique();
-            builder.Property(s => s.FullName).HasMaxLength(2 * VarcharMaxLen);
+            builder.Ignore(u => u.FullName);
             builder.Property(s => s.Password).HasMaxLength(10 * VarcharMaxLen);
         }
 
@@ -48,8 +50,8 @@ namespace Library.DAL.Data
             builder.Property(a => a.FirstName).HasMaxLength(VarcharMaxLen);
             builder.Property(a => a.LastName).HasMaxLength(VarcharMaxLen);
             builder.Property(a => a.Patronymic).HasMaxLength(VarcharMaxLen);
-            builder.Property(a => a.FullName).HasMaxLength(2 * VarcharMaxLen);
-            builder.Property(a => a.ShortName).HasMaxLength(VarcharMaxLen);
+            builder.Ignore(a => a.FullName);
+            builder.Ignore(a => a.ShortName);
 
         }
 

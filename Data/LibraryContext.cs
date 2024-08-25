@@ -31,7 +31,7 @@ namespace Library.DAL.Data
             this.connectionString = connectionString;
             this.version = version; 
 
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

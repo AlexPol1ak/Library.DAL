@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Library.DAL.Repositories
 {
@@ -96,9 +97,14 @@ namespace Library.DAL.Repositories
         /// Возвращает все сущности в репозитории.
         /// </summary>
         /// <returns>Запрос, содержащий все сущности.</returns>
-        public IQueryable<BookHistory> GetAll()
+        public IQueryable<BookHistory> GetAll(params string[] includes)
         {
-            return bookHistories.AsQueryable();
+            IQueryable<BookHistory> query = bookHistories.AsQueryable();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query;
         }
 
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using Library.DAL.Data;
 using Library.Domain.Entities.Books;
+using Library.Domain.Entities.Users;
 using Library.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -97,9 +98,14 @@ namespace Library.DAL.Repositories
         /// Возвращает все сущности в репозитории.
         /// </summary>
         /// <returns>Запрос, содержащий все сущности.</returns>
-        public IQueryable<Rack> GetAll()
+        public IQueryable<Rack> GetAll(params string[] includes)
         {
-            return racks.AsQueryable();
+            IQueryable<Rack> query = racks.AsQueryable();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query;
         }
 
         /// <summary>

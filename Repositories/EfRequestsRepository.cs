@@ -97,9 +97,15 @@ namespace Library.DAL.Repositories
         /// Возвращает все сущности в репозитории.
         /// </summary>
         /// <returns>Запрос, содержащий все сущности.</returns>
-        public IQueryable<Request> GetAll()
+        public IQueryable<Request> GetAll(params string[] includes)
         {
-            return requests.AsQueryable();
+
+            IQueryable<Request> query = requests.AsQueryable();
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+            return query;
         }
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace Library.DAL.Data
             this.connectionString = connectionString;
             this.version = version; 
 
-            //Database.EnsureDeleted();
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -54,6 +54,7 @@ namespace Library.DAL.Data
             modelBuilder.Entity<Genre>(ModelsConfig.GenreConfig);
             modelBuilder.Entity<Rack>(ModelsConfig.RackConfig);
             modelBuilder.Entity<Term>(ModelsConfig.TermConfig);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

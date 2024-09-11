@@ -61,7 +61,6 @@ namespace Library.DAL.Data
             builder.ToTable("Books");
             builder.Property(b => b.Name).HasMaxLength(VarcharMaxLen);
             builder.Property(b => b.Description).HasColumnType("TEXT").HasMaxLength(TextMaxLen);
-            builder.Property(b => b.PublicationDate).HasColumnType("YEAR");
         }
 
         // Конифигурация таблицы историй книги.
@@ -75,6 +74,7 @@ namespace Library.DAL.Data
         static public void GenreConfig(EntityTypeBuilder<Genre> builder)
         {
             builder.ToTable("Genres");
+            builder.HasIndex(g => g.Name).IsUnique();
             builder.Property(g => g.Name).HasMaxLength(VarcharMaxLen);
         }
 

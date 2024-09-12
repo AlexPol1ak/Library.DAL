@@ -61,6 +61,7 @@ namespace Library.DAL.Data
             builder.ToTable("Books");
             builder.Property(b => b.Name).HasMaxLength(VarcharMaxLen);
             builder.Property(b => b.Description).HasColumnType("TEXT").HasMaxLength(TextMaxLen);
+            builder.Ignore(b => b.AuthorsShort);
         }
 
         // Конифигурация таблицы историй книги.

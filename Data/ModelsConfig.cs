@@ -27,6 +27,7 @@ namespace Library.DAL.Data
             builder.Property(u => u.Patronymic).HasMaxLength(VarcharMaxLen);
             builder.Property(u => u.Email).HasMaxLength(VarcharMaxLen);
             builder.Ignore(u => u.FullName);
+            builder.Ignore(u=>u.ShortName);
         }
 
         // Конифигурация таблицы персонала.
@@ -39,7 +40,8 @@ namespace Library.DAL.Data
             builder.Property(s => s.Patronymic).HasMaxLength(VarcharMaxLen);
             builder.Property(s => s.Email).HasMaxLength(VarcharMaxLen);
             builder.HasIndex(s => s.Email).IsUnique();
-            builder.Ignore(u => u.FullName);
+            builder.Ignore(s => s.FullName);
+            builder.Ignore(s => s.ShortName);
             builder.Property(s => s.Password).HasMaxLength(10 * VarcharMaxLen);
         }
 

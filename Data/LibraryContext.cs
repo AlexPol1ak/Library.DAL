@@ -11,6 +11,9 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Library.DAL.Data
 {
+    /// <summary>
+    /// Класс контекста базы данных.
+    /// </summary>
     public class LibraryContext: DbContext
     {
         private string connectionString;

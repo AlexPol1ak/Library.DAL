@@ -18,7 +18,7 @@ namespace Library.DAL.Data
     {
         static int VarcharMaxLen = 45;
         static int TextMaxLen = 500;
-        // Конифигурация таблицы читателя.
+        // Конфигурация таблицы читателя.
         static public void UserConfig(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("Users");

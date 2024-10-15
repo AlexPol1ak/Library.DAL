@@ -14,7 +14,7 @@ namespace Library.DAL.Repositories
 {
 
     /// <summary>
-    /// Репозиторий для работы с сущностями <see cref="Author"/> в контексте Entity Framework.
+    /// Репозитории для работы с сущностями <see cref="Author"/> в контексте Entity Framework.
     /// Реализует интерфейс <see cref="IRepository{TEntity}"/> для выполнения операций CRUD.
     /// </summary>
     public class EfAuthorsRepository : IRepository<Author>

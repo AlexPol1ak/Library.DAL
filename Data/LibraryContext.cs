@@ -43,7 +43,7 @@ namespace Library.DAL.Data
         }
 
         /// <summary>
-        /// Выполняет конфигруацию таблиц.
+        /// Выполняет конфигурацию таблиц.
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)

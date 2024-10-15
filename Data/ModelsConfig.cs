@@ -30,7 +30,7 @@ namespace Library.DAL.Data
             builder.Ignore(u=>u.ShortName);
         }
 
-        // Конифигурация таблицы персонала.
+        // Конфигурация таблицы персонала.
         static public void StuffConfig(EntityTypeBuilder<Stuff> builder)
         {
             builder.ToTable("Stuff");
@@ -45,7 +45,7 @@ namespace Library.DAL.Data
             builder.Property(s => s.Password).HasMaxLength(10 * VarcharMaxLen);
         }
 
-        // Конифигурация таблицы авторов книг.
+        // Конфигурация таблицы авторов книг.
         static public void AuthorConfig(EntityTypeBuilder<Author> builder)
         {
             builder.ToTable("Authors");
@@ -57,7 +57,7 @@ namespace Library.DAL.Data
 
         }
 
-        // Конифигурация таблицы книг.
+        // Конфигурация таблицы книг.
         static public void BookConfig(EntityTypeBuilder<Book> builder)
         {
             builder.ToTable("Books");
@@ -66,14 +66,14 @@ namespace Library.DAL.Data
             builder.Ignore(b => b.AuthorsShort);
         }
 
-        // Конифигурация таблицы историй книги.
+        // Конфигурация таблицы историй книги.
         static public void BookHistoryConfig(EntityTypeBuilder<BookHistory> builder)
         {
             builder.ToTable("BookHistories");
             builder.Property(bh => bh.Remarks).HasColumnType("TEXT").HasMaxLength(TextMaxLen);
         }
 
-        // Конифигурация таблицы жанров.
+        // Конфигурация таблицы жанров.
         static public void GenreConfig(EntityTypeBuilder<Genre> builder)
         {
             builder.ToTable("Genres");
@@ -81,14 +81,14 @@ namespace Library.DAL.Data
             builder.Property(g => g.Name).HasMaxLength(VarcharMaxLen);
         }
 
-        // Конифигурация таблицы стелажей.
+        // Конфигурация таблицы стеллажей.
         static public void RackConfig(EntityTypeBuilder<Rack> builder)
         {
             builder.ToTable("Racks");
             builder.Property(r => r.Name).HasMaxLength(VarcharMaxLen);
         }
 
-        // Конифигурация таблицы правил выдачи книг.
+        // Конфигурация таблицы правил выдачи книг.
         static public void TermConfig(EntityTypeBuilder<Term> builder)
         {
             builder.ToTable("Terms");

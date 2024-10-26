@@ -2,12 +2,6 @@
 using Library.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library.DAL.Data
 {
@@ -27,7 +21,7 @@ namespace Library.DAL.Data
             builder.Property(u => u.Patronymic).HasMaxLength(VarcharMaxLen);
             builder.Property(u => u.Email).HasMaxLength(VarcharMaxLen);
             builder.Ignore(u => u.FullName);
-            builder.Ignore(u=>u.ShortName);
+            builder.Ignore(u => u.ShortName);
         }
 
         // Конфигурация таблицы персонала.

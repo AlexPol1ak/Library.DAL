@@ -1,26 +1,19 @@
 ﻿using Library.Domain.Entities.Books;
 using Library.Domain.Entities.Users;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.IO.Packaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Library.DAL.Data
 {
     /// <summary>
     /// Класс контекста базы данных.
     /// </summary>
-    public class LibraryContext: DbContext
+    public class LibraryContext : DbContext
     {
         private string connectionString;
         private string version;
 
         public DbSet<User> Users { get; set; } = null!;
-        public DbSet<Stuff>  Stuff{ get; set; } = null!;
+        public DbSet<Stuff> Stuff { get; set; } = null!;
         public DbSet<Request> Requests { get; set; } = null!;
         public DbSet<Author> Authors { get; set; } = null!;
         public DbSet<Book> Books { get; set; } = null!;
@@ -32,14 +25,14 @@ namespace Library.DAL.Data
         public LibraryContext(string connectionString, string version)
         {
             this.connectionString = connectionString;
-            this.version = version; 
+            this.version = version;
 
             //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(connectionString,new MySqlServerVersion(new Version(version)));
+            optionsBuilder.UseMySql(connectionString, new MySqlServerVersion(new Version(version)));
         }
 
         /// <summary>

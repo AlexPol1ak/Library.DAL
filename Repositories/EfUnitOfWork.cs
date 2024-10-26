@@ -2,20 +2,11 @@
 using Library.Domain.Entities.Books;
 using Library.Domain.Entities.Users;
 using Library.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
-using System.Windows.Input;
-using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Library.DAL.Repositories
 {
-    public class EfUnitOfWork: IUnitOfWork
+    public class EfUnitOfWork : IUnitOfWork
     {
         public string ConnectionString { get; private set; }
         public string Version { get; private set; }
@@ -31,19 +22,19 @@ namespace Library.DAL.Repositories
         private IRepository<Rack> racksRepository;
         private IRepository<Term> termsRepository;
 
-        public IRepository<User> UsersRepository => usersRepository ??= 
+        public IRepository<User> UsersRepository => usersRepository ??=
             new EfUsersRepository(context);
-        public IRepository<Stuff> StuffRepository => stuffRepository ??= 
+        public IRepository<Stuff> StuffRepository => stuffRepository ??=
             new EfStuffRepository(context);
         public IRepository<Request> RequestsRepository => requestsRepository ??=
             new EfRequestsRepository(context);
         public IRepository<Author> AuthorsRepository => authorsRepository ??=
             new EfAuthorsRepository(context);
-        public IRepository<Book> BooksRepository => booksRepository ??= 
+        public IRepository<Book> BooksRepository => booksRepository ??=
             new EfBooksRepository(context);
         public IRepository<BookHistory> BookHistoriesRepository => bookHistoriesRepository ??=
             new EfBookHistoriesRepository(context);
-        public IRepository<Genre> GenresRepository => genresRepository ??= 
+        public IRepository<Genre> GenresRepository => genresRepository ??=
             new EfGenresRepository(context);
         public IRepository<Rack> RacksRepository => racksRepository ??=
             new EfRacksRepository(context);

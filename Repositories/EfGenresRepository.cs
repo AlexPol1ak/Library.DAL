@@ -2,13 +2,7 @@
 using Library.Domain.Entities.Books;
 using Library.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls.Primitives;
 
 namespace Library.DAL.Repositories
 {
@@ -19,7 +13,7 @@ namespace Library.DAL.Repositories
     public class EfGenresRepository : IRepository<Genre>
     {
         private readonly DbSet<Genre> genres;
-        
+
         public EfGenresRepository(LibraryContext libraryContext)
         {
             genres = libraryContext.Genres;

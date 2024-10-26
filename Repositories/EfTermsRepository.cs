@@ -3,8 +3,6 @@ using Library.Domain.Entities.Books;
 using Library.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library.DAL.Repositories
 {
